@@ -1,0 +1,32 @@
+public static String encryption(char[] plainText, int k, int n) {
+    String cipherText = "";
+    for(int i = 0; i < plainText.length; i++) {
+        int idx = (int)(plainText[i] - 'a');
+        int cipher = (idx + k) % n;
+        char cipherChar = (char)(cipher + 'A');
+        cipherText += cipherChar;
+    }
+    return cipherText;
+}
+
+public static String decryption(char[] cipherText, int k, int n) {
+    String plainText = "";
+    for(int i = 0; i < cipherText.length; i++) {
+        int idx = (int)(cipherText[i] - 'A');
+        int p;
+        if(idx - k < 0)
+            p = (n + (idx - k)) % n;
+        else
+            p = (idx - k) % n;
+        char plainChar = (char)(p + 'a');
+        plainText += plainChar;
+    }
+    return plainText;
+}
+
+public static String[] brutForce(char[] cipherText, int n) {
+    String[] ArrayCipher = new String[26];
+    for(int k = 0; k < 26; k++)
+        ArrayCipher[k] = decryption(cipherText, k, n);
+    return ArrayCipher;
+}

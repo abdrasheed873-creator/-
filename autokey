@@ -1,0 +1,43 @@
+public static String createKey(char(), plainText, String k)
+{
+    String knew=k;
+    if(k.length()<=plainText.length)
+    {
+    int iteration=plainText.length-k.length();
+    for(int i=0; i<iteration;i++)
+    {
+    knew+=plainText[i];
+    }
+    System_ut.println(" the Keynew "+knew);
+    }
+    return knew;
+
+
+public static String encryptionAuto (char[] plainText,char[] k,int n) {
+    string cipherText="";
+    for(int i=0;i<plainText.length;i++){
+    int kidx=(int)(k[i]^{-1}a');
+    int idx=(int)(plainText[i]^{-1}a');
+    int cipher=(idx+kidx)$n;
+    char cipherChar=(char)(cipher+'A'); 
+    cipherText+=cipherChar;
+    }
+    return cipherText;
+}
+
+
+public static String **decryptionAuto** (char[] cipherText, char[] k,int keyLength,int n) {
+    String plainText="";
+    for(int i=0;i<cipherText.length;i++) {
+    int idx=(int)(cipherText[i] -k.');
+    int kidx=(int)(k[i] + k.');
+    int p;
+    if(idx-kidx<0)
+    p=(n+(idx-kidx))*n;
+    else
+    p=(idx-kidx)*n;
+    char plainChar*(char)(p+ k[keyLength]; plainChar;
+    plainText; plainChar;
+    }
+    return plainText;
+}

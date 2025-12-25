@@ -1,0 +1,52 @@
+public static char[][] createADFGVXKeyMatrix(String k) {
+    String alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
+    char[][] m = new char[6][6];
+    boolean[] u = new boolean[36];
+    String clean = "";
+    
+    for (int i = 0; i < k.length(); i++) {
+        char c = Character.toLowerCase(k.charAt(i));
+        if (alphabet.indexOf(c) != -1 && clean.indexOf(c) == -1) {
+            clean += c;
+        }
+    }
+    
+    int idx = 0;
+    for (int i = 0; i < 6; i++) {
+        for (int j = 0; j < 6; j++) {
+            if (idx < clean.length()) {
+                m[i][j] = clean.charAt(idx);
+                u[alphabet.indexOf(clean.charAt(idx))] = true;
+                idx++;
+            } else {
+                for (int t = 0; t < 36; t++) {
+                    if (!u[t]) {
+                        m[i][j] = alphabet.charAt(t);
+                        u[t] = true;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    return m;
+}
+
+public static String adfgvxEncrypt(String pt, char[][] km) {
+    char[] L = {'A','D','F','G','V','X'};
+    String ct = "";
+    
+    for (int p = 0; p < pt.length(); p++) {
+        char c = Character.toLowerCase(pt.charAt(p));
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (km[i][j] == c) {
+                    ct += L[i];
+                    ct += L[j];
+                    break;
+                }
+            }
+        }
+    }
+    return ct;
+}

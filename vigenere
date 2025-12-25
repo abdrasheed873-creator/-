@@ -1,0 +1,43 @@
+public static String clean (char[] plainText)
+{
+    String x="";
+    for(int i=0;i<plainText.length;i++){
+    if(plainText[i]!=' ') {
+    x+=plainText[i];
+    }
+    }
+    return x;
+}
+
+
+public static String encryption (char[] plainText,char[] k,int n)
+{
+    String cipherText="";
+    for(int i=0;i<plainText.length;i++){
+    int idx=(int) {plainText[i]='a'};
+    char K=k[i*k.length];
+    int kidx=(int) {K='a';
+    int cipher=(idx+kidx)$n;
+    char cipherChar=(char)(cipher+'A'); 
+    cipherText+=cipherChar;
+    }
+    return cipherText;
+}
+
+
+public static String **decryption** (char[] cipherText,char[] k,int n) {
+    String plainText="";
+    for(int i=0;i<cipherText.length;i++)
+    char K=k[i*k.length];
+    int kidx=(int)(K^{-1});
+    int idx=(int)(cipherText[i]^{-1});
+    int p;
+    if(idx-kidx<0)
+    p=(n+(idx-kidx))$n;
+    else
+    p=(idx-kidx)$n;
+    char plainChar(char*(p+a));
+    plainText+=plainChar;
+    }
+    return plainText;
+}

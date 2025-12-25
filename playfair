@@ -1,0 +1,26 @@
+public static char[][] createPlayfairKeyMatrix(String key) {
+    // Remove duplicate letters and 'j' from key
+    String cleanKey = "";
+    for (int i = 0; i < key.length(); i++) {
+        char c = Character.toLowerCase(key.charAt(i));
+        if (c >= 'a' && c <= 'z' && c != 'j') {
+            if (!cleanKey.contains(String.valueOf(c))) {
+                cleanKey += c;
+            }
+        }
+    }
+    public static String divPlainText(char[] plainText) {
+    String pt = "";
+    for (int i = 0; i < plainText.length; i++) {
+        if (i != plainText.length - 1 && plainText[i] == plainText[i + 1]) {
+            pt += plainText[i];
+            pt += 'x';
+        } else {
+            pt += plainText[i];
+        }
+    }
+    if (pt.length() % 2 == 1) {
+        pt += 'z';
+    }
+    return pt;
+}

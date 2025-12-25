@@ -1,0 +1,37 @@
+int index=0;
+for(int i=0;i<6;i++){
+    for(int j=0;j<6;j++){
+        if(index<k.length()){
+            key[i][j]=k[index];
+            for(int w=0;w<36;w++){
+                if(alphabet[w]==k[index]){
+                    fre[w]++;
+                    break;
+                }
+            }
+            index++;
+        } else {
+            for(int q=0;q<36;q++){
+                if(fre[q]==0){
+                    key[i][j]=alphabet[q];
+                    fre[q]++;
+                    break;
+                }
+            }
+        }
+    }
+}
+
+static public int[][] sub_key_generation(int[] arr) {
+    int[][] keyRounds=new int[16][48];
+    for(int round=1;round<17;round++){
+        int[] arrLeft=new int[28];
+        int[] arrRight=new int[28];
+        for(int i=0;i<28;i++)
+            arrLeft[i]=arr[i];
+        for(int i=28;i<56;i++)
+            arrRight[i-28]=arr[i];
+        arrLeft=shiftLeft(arrLeft, round);
+        arrRight=shiftLeft(arrRight, round);
+    }
+}
